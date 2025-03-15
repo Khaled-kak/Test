@@ -1,4 +1,4 @@
-const API_KEY = fce4d310a188453eaa6c3118531b7226;  // Remplace par ta clé NewsAPI
+const API_KEY = "fce4d310a188453eaa6c3118531b7226";  // Remplace par ta clé NewsAPI
 const GPT_API_KEY = "TA_CLE_API_OPENAI";  // Remplace par ta clé OpenAI
 const QUERY = "Algérie";
 const LANGUAGE = "fr";
