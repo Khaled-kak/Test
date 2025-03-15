@@ -2,9 +2,11 @@ const API_KEY = "fce4d310a188453eaa6c3118531b7226";  // Remplace par ta clé API
 const QUERY = "Algérie";
 const LANGUAGE = "fr";
 const PAGE_SIZE = 20;  // ✅ Limite à 20 articles
+const FETCH_INTERVAL = 60 * 60 * 1000;  // ✅ 1 heure en millisecondes
 
+// ✅ Fonction pour récupérer les actualités
 async function fetchNews() {
-    const url = `https://newsapi.org/v2/everything?q=${QUERY}&language=${LANGUAGE}&pageSize=${PAGE_SIZE}&apiKey=${API_KEY}`;
+    const url = `https://newsapi.org/v2/everything?q=${QUERY}&language=${LANGUAGE}&pageSize=${PAGE_SIZE}&sortBy=publishedAt&apiKey=${API_KEY}`;
 
     try {
         const response = await fetch(url);
@@ -15,10 +17,10 @@ async function fetchNews() {
             return;
         }
 
-        // ✅ Filtrer les articles et appliquer l’analyse
+        // ✅ Analyser les articles et afficher
         const analyzedArticles = data.articles.map(article => analyzeArticle(article));
-
         displayNews(analyzedArticles);
+
     } catch (error) {
         console.error("Erreur lors de la récupération des articles :", error);
     }
@@ -40,10 +42,10 @@ function analyzeArticle(article) {
     return { ...article, sentiment, newTitle };
 }
 
-// ✅ Affichage des articles analysés
+// ✅ Fonction pour afficher les articles sur la page
 function displayNews(articles) {
     const newsContainer = document.getElementById("news");
-    newsContainer.innerHTML = ""; // Vider le contenu avant d'ajouter les nouveaux articles
+    newsContainer.innerHTML = ""; // Vider avant d'ajouter les nouveaux articles
 
     articles.forEach(article => {
         const articleElement = document.createElement("div");
@@ -60,5 +62,8 @@ function displayNews(articles) {
     });
 }
 
-// ✅ Charger les actualités au chargement de la page
+// ✅ Lancer la récupération des actualités toutes les heures
+setInterval(fetchNews, FETCH_INTERVAL);
+
+// ✅ Charger les actualités au démarrage
 document.addEventListener("DOMContentLoaded", fetchNews);
