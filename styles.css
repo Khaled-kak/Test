@@ -75,6 +75,8 @@ body {
     background-color: #fff;
     padding: 10px;
     text-align: center;
+    border-top: 1px solid #ccc; /* Ligne grise fine entre le menu et le header */
+    border-bottom: 1px solid #ccc; /* Ligne fine entre le menu et la page */
 }
 
 .nav-menu a {
