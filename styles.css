@@ -12,8 +12,8 @@ body {
 /* En-tête */
 .header {
     background-color: #fff; /* Fond blanc */
-    color: #fff;
-    padding: 50px; /* Plus de padding pour un header plus haut */
+    color: #163860; /* Couleur du texte */
+    padding: 40px 20px; /* Deux fois plus haut */
     display: flex;
     justify-content: space-between;
     align-items: center;
