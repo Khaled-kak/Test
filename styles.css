@@ -11,13 +11,14 @@ body {
 
 /* En-tête */
 .header {
-    background-color: #163860;
-    color: #fff;
-    padding: 10px 20px;
+    background-color: #fff; /* Fond blanc */
+    color: #163860;
+    padding: 20px; /* Plus de padding pour un header plus haut */
     display: flex;
     justify-content: space-between;
     align-items: center;
     position: relative;
+    border-bottom: 1px solid #ccc; /* Ligne de séparation */
 }
 
 .header .logo {
@@ -34,7 +35,7 @@ body {
 }
 
 .header .auth-links a {
-    color: #fff;
+    color: #163860; /* Couleur du texte */
     text-decoration: none;
     font-weight: 600;
 }
@@ -49,26 +50,20 @@ body {
 }
 
 .header .search input {
-    padding: 5px;
-    border: none;
-    border-radius: 3px;
+    padding: 8px 30px 8px 10px; /* Padding pour la loupe */
+    border: 1px solid #ccc;
+    border-radius: 20px;
     font-family: 'Source Sans Pro', Arial, sans-serif;
-}
-
-.header .search button {
-    padding: 5px 10px;
-    background-color: #fff;
-    border: none;
-    border-radius: 3px;
-    margin-left: 5px;
-    cursor: pointer;
-    font-family: 'Source Sans Pro', Arial, sans-serif;
+    background-image: url('search-icon.png'); /* Ajoutez une icône de loupe */
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 16px;
 }
 
 /* Menu de navigation */
 .nav-menu {
-    background-color: #006400;
-    padding: 15px;
+    background-color: #006400; /* Vert foncé */
+    padding: 10px;
     text-align: center;
 }
 
@@ -81,7 +76,7 @@ body {
 }
 
 .nav-menu a:hover {
-    color: #163860;
+    color: #ffcc00; /* Couleur au survol */
 }
 
 /* Conteneur pour les colonnes */
@@ -120,7 +115,7 @@ body {
 
 /* Pied de page */
 .footer {
-    background-color: #163860;
+    background-color: #006400; /* Vert foncé */
     color: #fff;
     text-align: center;
     padding: 10px;
@@ -129,7 +124,7 @@ body {
 
 /* Styles pour le titre et la photo */
 .middle-column-content {
-    text-align: center;
+    text-align: left; /* Titre aligné à gauche */
     margin: 20px 0;
 }
 
@@ -140,10 +135,11 @@ body {
 }
 
 .middle-column-content .photo {
-    width: 13.15cm;
-    height: 7.44cm;
-    background-color: #ccc; /* Remplacez par l'URL de votre photo */
+    width: calc(100% - 40px); /* Taille avec padding de 20px */
+    height: 300px; /* Ajustez la hauteur selon vos besoins */
+    background-image: url('Pic1.jpg'); /* Nouvelle photo */
     background-size: cover;
     background-position: center;
     margin: 0 auto; /* Centrer la photo */
+    padding: 20px; /* Padding de 20px */
 }
