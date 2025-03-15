@@ -1,28 +1,28 @@
-/* Styles généraux */
+/* Global Styles */
 body {
-    font-family: 'Noto Serif', Georgia, Verdana, Times, 'Times New Roman', Garamond, Palatino, serif;
-    font-size: 16px;
+    font-family: Arial, sans-serif;
     line-height: 1.6;
     margin: 0;
     padding: 0;
     background-color: #fff;
-    color: #163860;
+    color: #333;
 }
 
-/* En-tête */
+/* Header */
 .header {
-    background-color: #fff; /* Fond blanc */
-    color: #163860; /* Couleur du texte */
-    padding: 40px 20px; /* Hauteur doublée */
+    background-color: #228B22;
+    color: #fff;
+    padding: 10px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
     position: relative;
-    border-bottom: 1px solid #ccc; /* Ligne de séparation */
 }
 
 .header .logo {
     height: 50px;
+    max-width: 100%;
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
@@ -31,17 +31,18 @@ body {
 .header .auth-links {
     display: flex;
     gap: 15px;
-    font-size: 14px;
+    font-size: 0.9rem;
 }
 
 .header .auth-links a {
-    color: #163860; /* Couleur du texte */
+    color: #fff;
     text-decoration: none;
-    font-weight: 600;
+    font-weight: bold;
+    transition: color 0.3s;
 }
 
 .header .auth-links a:hover {
-    color: #1f66ba;
+    color: #ddd;
 }
 
 .header .search {
@@ -50,19 +51,28 @@ body {
 }
 
 .header .search input {
-    padding: 8px 30px 8px 10px; /* Padding pour la loupe */
+    padding: 5px;
     border: 1px solid #ccc;
-    border-radius: 20px;
-    font-family: 'Source Sans Pro', Arial, sans-serif;
-    background-image: url('search-icon.png'); /* Ajoutez une icône de loupe */
-    background-repeat: no-repeat;
-    background-position: right 10px center;
-    background-size: 16px;
+    border-radius: 5px;
 }
 
-/* Menu de navigation */
+.header .search button {
+    padding: 5px 10px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-left: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.header .search button:hover {
+    background-color: #f0f0f0;
+}
+
+/* Navigation Menu */
 .nav-menu {
-    background-color: #006400; /* Vert foncé */
+    background-color: #32CD32;
     padding: 10px;
     text-align: center;
 }
@@ -71,23 +81,23 @@ body {
     color: #fff;
     text-decoration: none;
     margin: 0 15px;
-    font-weight: 600;
-    font-family: 'Source Sans Pro', Arial, sans-serif;
+    font-weight: bold;
+    transition: text-decoration 0.3s;
 }
 
 .nav-menu a:hover {
-    color: #ffcc00; /* Couleur au survol */
+    text-decoration: underline;
 }
 
-/* Conteneur pour les colonnes */
+/* Container */
 .container {
     display: flex;
     max-width: 1200px;
     margin: 20px auto;
     padding: 0 20px;
+    gap: 20px;
 }
 
-/* Colonnes */
 .column {
     padding: 10px;
     border-right: 1px solid #ccc;
@@ -97,49 +107,52 @@ body {
     border-right: none;
 }
 
-/* Colonne du milieu plus large */
 .column.middle {
     flex: 2;
 }
 
-.column.left,
-.column.right {
+.column.left, .column.right {
     flex: 1;
 }
 
-/* Séparateurs */
 .separator {
     border-top: 1px solid #ccc;
     margin: 20px 0;
 }
 
-/* Pied de page */
+/* Footer */
 .footer {
-    background-color: #006400; /* Vert foncé */
+    background-color: #228B22;
     color: #fff;
     text-align: center;
     padding: 10px;
     margin-top: 20px;
 }
 
-/* Styles pour le titre et la photo */
-.middle-column-content {
-    text-align: left; /* Titre aligné à gauche */
-    margin: 20px 0;
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .column {
+        border-right: none;
+    }
+
+    .header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .header .auth-links, .header .search {
+        margin-top: 10px;
+    }
 }
 
-.middle-column-content .title {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 20px;
-}
-
-.middle-column-content .photo {
-    width: calc(100% - 40px); /* Taille avec padding de 20px */
-    height: 300px; /* Ajustez la hauteur selon vos besoins */
-    background-image: url('Pic1.jpg'); /* Nouvelle photo */
-    background-size: cover;
-    background-position: center;
-    margin: 0 auto; /* Centrer la photo */
-    padding: 20px; /* Padding de 20px */
+@media (max-width: 768px) {
+    .nav-menu a {
+        display: block;
+        margin: 10px 0;
+    }
 }
