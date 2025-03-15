@@ -4,12 +4,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
     <title>Actualités Algérie - Analyse</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="newsapi.js" defer></script> <!-- ✅ Ajout du script pour récupérer et afficher les articles -->
+    <link rel="stylesheet" href="styles.css"> <!-- Lien vers le fichier CSS -->
+    <script src="newsapi.js" defer></script> <!-- Lien vers le fichier JavaScript -->
 </head>
 <body>
     <!-- Header -->
-    <div class="header">
+    <header class="header">
         <div class="auth-links">
             <a href="#">Se connecter</a>
             <a href="#">S'abonner</a>
@@ -19,44 +19,44 @@
             <input type="text" placeholder="Rechercher...">
             <button>🔍</button>
         </div>
-    </div>
+    </header>
 
     <!-- Navigation Menu -->
-    <div class="nav-menu">
+    <nav class="nav-menu">
         <a href="#">Accueil</a>
         <a href="#">Analyse</a>
         <a href="#">Observatoire Media</a>
         <a href="#">Réinformation</a>
         <a href="#">Qui sommes-nous</a>
         <a href="#">Contact</a>
-    </div>
+    </nav>
 
-    <!-- Three-Column Layout -->
-    <div class="container">
+    <!-- Main Content -->
+    <main class="container">
         <div class="column left">
-            <h2>Left Column</h2>
+            <h2>Colonne de gauche</h2>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
             <div class="separator"></div>
             <p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices.</p>
         </div>
 
-        <!-- ✅ Colonne du milieu mise à jour pour afficher les actualités -->
+        <!-- Colonne du milieu pour les actualités -->
         <div class="column middle">
             <h2>Actualités sur l'Algérie</h2>
-            <div id="news">Chargement des articles...</div> <!-- ✅ Les articles s'afficheront ici -->
+            <div id="news">Chargement des articles...</div> <!-- Les articles s'afficheront ici -->
         </div>
 
         <div class="column right">
-            <h2>Right Column</h2>
+            <h2>Colonne de droite</h2>
             <p>Nulla porttitor accumsan tincidunt.</p>
             <div class="separator"></div>
             <p>Praesent sapien massa, convallis a pellentesque nec.</p>
         </div>
-    </div>
+    </main>
 
     <!-- Footer -->
-    <div class="footer">
-        <p>&copy; 2025 Anonymized Website. All rights reserved.</p>
-    </div>
+    <footer class="footer">
+        <p>&copy; 2025 Anonymized Website. Tous droits réservés.</p>
+    </footer>
 </body>
 </html>
