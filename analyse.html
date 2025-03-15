@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+    <title>Analyse de l'article</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Analyse de l'Article</h1>
+        <div id="analysis">Chargement...</div>
+    </div>
+
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const articleUrl = params.get("article");
+
+        async function fetchAnalysis() {
+            if (!articleUrl) {
+                document.getElementById("analysis").innerText = "Aucun article trouvé.";
+                return;
+            }
+
+            const gptResponse = await fetch("https://api.openai.com/v1/chat/completions", {
+                method: "POST",
+                headers: {
+                    "Authorization": `Bearer ${GPT_API_KEY}`,
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    model: "gpt-4-turbo",
+                    messages: [{ role: "user", content: `Analyse complète de l'article suivant : ${articleUrl}` }]
+                })
+            });
+
+            const gptData = await gptResponse.json();
+            
+            if (!gptData.choices) {
+                document.getElementById("analysis").innerText = "Erreur lors de l'analyse.";
+                return;
+            }
+
+            document.getElementById("analysis").innerHTML = `<p>${gptData.choices[0].message.content}</p>`;
+        }
+
+        document.addEventListener("DOMContentLoaded", fetchAnalysis);
+    </script>
+</body>
+</html>
