@@ -72,13 +72,13 @@ body {
 
 /* Navigation Menu */
 .nav-menu {
-    background-color: #32CD32;
+    background-color: #fff;
     padding: 10px;
     text-align: center;
 }
 
 .nav-menu a {
-    color: #fff;
+    color: #000;
     text-decoration: none;
     margin: 0 15px;
     font-weight: bold;
