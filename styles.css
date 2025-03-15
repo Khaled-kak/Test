@@ -21,7 +21,7 @@ body {
 }
 
 .header .logo {
-    height: 50px;
+    height: 100px;
     max-width: 100%;
     position: absolute;
     left: 50%;
