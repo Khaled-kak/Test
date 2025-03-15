@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anonymized Website</title>
+    <style>
+        /* Styles généraux */
+        body {
+            font-family: 'Noto Serif', Georgia, Verdana, Times, 'Times New Roman', Garamond, Palatino, serif;
+            font-size: 16px;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #fff;
+            color: #163860;
+        }
+
+        /* En-tête */
+        .header {
+            background-color: #163860;
+            color: #fff;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+        }
+
+        .header .logo {
+            height: 50px;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .header .auth-links {
+            display: flex;
+            gap: 15px;
+            font-size: 14px;
+        }
+
+        .header .auth-links a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .header .auth-links a:hover {
+            color: #1f66ba;
+        }
+
+        .header .search {
+            display: flex;
+            align-items: center;
+        }
+
+        .header .search input {
+            padding: 5px;
+            border: none;
+            border-radius: 3px;
+            font-family: 'Source Sans Pro', Arial, sans-serif;
+        }
+
+        .header .search button {
+            padding: 5px 10px;
+            background-color: #fff;
+            border: none;
+            border-radius: 3px;
+            margin-left: 5px;
+            cursor: pointer;
+            font-family: 'Source Sans Pro', Arial, sans-serif;
+        }
+
+        /* Menu de navigation */
+        .nav-menu {
+            background-color: #1f66ba;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .nav-menu a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: 600;
+            font-family: 'Source Sans Pro', Arial, sans-serif;
+        }
+
+        .nav-menu a:hover {
+            color: #163860;
+        }
+
+        /* Conteneur pour les colonnes */
+        .container {
+            display: flex;
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+
+        /* Colonnes */
+        .column {
+            padding: 10px;
+            border-right: 1px solid #ccc;
+        }
+
+        .column:last-child {
+            border-right: none;
+        }
+
+        /* Colonne du milieu plus large */
+        .column.middle {
+            flex: 2;
+        }
+
+        .column.left,
+        .column.right {
+            flex: 1;
+        }
+
+        /* Séparateurs */
+        .separator {
+            border-top: 1px solid #ccc;
+            margin: 20px 0;
+        }
+
+        /* Pied de page */
+        .footer {
+            background-color: #163860;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            margin-top: 20px;
+        }
+
+        /* Styles pour le titre et la photo */
+        .middle-column-content {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .middle-column-content .title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .middle-column-content .photo {
+            width: 13.15cm;
+            height: 7.44cm;
+            background-color: #ccc; /* Remplacez par l'URL de votre photo */
+            background-size: cover;
+            background-position: center;
+            margin: 0 auto; /* Centrer la photo */
+        }
+    </style>
+</head>
+<body>
+    <!-- En-tête -->
+    <div class="header">
+        <!-- Liens d'authentification -->
+        <div class="auth-links">
+            <a href="#">Se connecter</a>
+            <a href="#">S'abonner</a>
+        </div>
+
+        <!-- Logo -->
+        <img src="Logo.png" alt="Logo" class="logo">
+
+        <!-- Champ de recherche -->
+        <div class="search">
+            <input type="text" placeholder="Rechercher...">
+            <button>🔍</button>
+        </div>
+    </div>
+
+    <!-- Menu de navigation -->
+    <div class="nav-menu">
+        <a href="#">Accueil</a>
+        <a href="#">Analyse</a>
+        <a href="#">Observatoire Media</a>
+        <a href="#">Réinformation</a>
+        <a href="#">Qui sommes-nous</a>
+        <a href="#">Contact</a>
+    </div>
+
+    <!-- Conteneur pour les colonnes -->
+    <div class="container">
+        <!-- Colonne de gauche -->
+        <div class="column left">
+            <h2>Colonne de gauche</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam scelerisque ipsum vitae nisi tincidunt, at tincidunt nisi tincidunt.</p>
+            <div class="separator"></div>
+            <p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula.</p>
+        </div>
+
+        <!-- Colonne du milieu -->
+        <div class="column middle">
+            <!-- Titre et photo -->
+            <div class="middle-column-content">
+                <div class="title">
+                    Un fait divers malheureux et condamnable transformé en enjeu politique par plusieurs médias et hommes politiques
+                </div>
+                <div class="photo" style="background-image: url('votre-image.jpg');"></div>
+            </div>
+
+            <h2>Colonne du milieu</h2>
+            <p>Pellentesque in ipsum id orci porta dapibus. Curabitur aliquet quam id dui posuere blandit.</p>
+            <div class="separator"></div>
+            <p>Proin eget tortor risus. Cras ultricies ligula sed magna dictum porta.</p>
+            <div class="separator"></div>
+            <p>Nulla porttitor accumsan tincidunt. Vivamus suscipit tortor eget felis porttitor volutpat.</p>
+        </div>
+
+        <!-- Colonne de droite -->
+        <div class="column right">
+            <h2>Colonne de droite</h2>
+            <p>Nulla porttitor accumsan tincidunt. Vivamus suscipit tortor eget felis porttitor volutpat.</p>
+            <div class="separator"></div>
+            <p>Praesent sapien massa, convallis a pellentesque nec, egestas non nisi.</p>
+        </div>
+    </div>
+
+    <!-- Pied de page -->
+    <div class="footer">
+        <p>&copy; 2023 Anonymized Website. Tous droits réservés.</p>
+    </div>
+</body>
+</html>
