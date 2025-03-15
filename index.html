@@ -3,8 +3,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
-    <title>Anonymized Three-Column Layout with Header and Navigation</title>
+    <title>Actualités Algérie - Analyse</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="newsapi.js" defer></script> <!-- ✅ Ajout du script pour récupérer et afficher les articles -->
 </head>
 <body>
     <!-- Header -->
@@ -38,10 +39,12 @@
             <div class="separator"></div>
             <p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices.</p>
         </div>
-     <div class="column middle">
-    <h2>Actualités sur l'Algérie</h2>
-    <div id="news">Chargement des articles...</div>
-</div>
+
+        <!-- ✅ Colonne du milieu mise à jour pour afficher les actualités -->
+        <div class="column middle">
+            <h2>Actualités sur l'Algérie</h2>
+            <div id="news">Chargement des articles...</div> <!-- ✅ Les articles s'afficheront ici -->
+        </div>
 
         <div class="column right">
             <h2>Right Column</h2>
