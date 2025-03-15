@@ -1,10 +1,10 @@
 const API_KEY = "fce4d310a188453eaa6c3118531b7226";  // Remplace par ta clé API NewsAPI
 const QUERY = "Algérie";
 const LANGUAGE = "fr";
-const PAGE_SIZE = 20;  // ✅ Limite à 20 articles
-const FETCH_INTERVAL = 3 * 60 * 60 * 1000;  // ✅ 3 heures en millisecondes
+const PAGE_SIZE = 20;  // Limite à 20 articles
+const FETCH_INTERVAL = 3 * 60 * 60 * 1000;  // 3 heures en millisecondes
 
-// ✅ Fonction pour récupérer les actualités
+// Fonction pour récupérer les actualités
 async function fetchNews() {
     const url = `https://newsapi.org/v2/everything?q=${QUERY}&language=${LANGUAGE}&pageSize=${PAGE_SIZE}&sortBy=publishedAt&apiKey=${API_KEY}`;
 
@@ -22,7 +22,7 @@ async function fetchNews() {
             return;
         }
 
-        // ✅ Analyser les articles et afficher
+        // Analyser les articles et afficher
         const analyzedArticles = await Promise.all(data.articles.map(article => analyzeArticle(article)));
         displayNews(analyzedArticles);
 
@@ -31,7 +31,7 @@ async function fetchNews() {
     }
 }
 
-// ✅ Fonction d'analyse du sentiment et reformulation du titre
+// Fonction d'analyse du sentiment et reformulation du titre
 async function analyzeArticle(article) {
     let sentiment = "⚪ Neutre";
     let newTitle = article.title;
@@ -51,7 +51,7 @@ async function analyzeArticle(article) {
     return { ...article, sentiment, newTitle };
 }
 
-// ✅ Fonction pour afficher les articles sur la page
+// Fonction pour afficher les articles sur la page
 function displayNews(articles) {
     const newsContainer = document.getElementById("news");
     newsContainer.innerHTML = ""; // Vider avant d'ajouter les nouveaux articles
@@ -73,8 +73,8 @@ function displayNews(articles) {
     });
 }
 
-// ✅ Lancer la récupération des actualités toutes les 3 heures
+// Lancer la récupération des actualités toutes les 3 heures
 setInterval(fetchNews, FETCH_INTERVAL);
 
-// ✅ Charger les actualités au démarrage
+// Charger les actualités au démarrage
 document.addEventListener("DOMContentLoaded", fetchNews);
