@@ -137,7 +137,7 @@ body {
 .middle-column-content .photo {
     width: calc(100% - 40px); /* Taille avec padding de 20px */
     height: 300px; /* Ajustez la hauteur selon vos besoins */
-    background-image: url('Pic1.jpg'); /* Nouvelle photo */
+    background-image: url('Pic1.png'); /* Nouvelle photo */
     background-size: cover;
     background-position: center;
     margin: 0 auto; /* Centrer la photo */
