@@ -10,9 +10,9 @@ body {
 
 /* Header */
 .header {
-    background-color: #228B22; /* Vert foncé */
-    color: #fff;
-    padding: 20px;
+    background-color: #fff; /* blanc */
+    color: #000;
+    padding: 100px;
     display: flex;
     justify-content: space-between;
     align-items: center;
