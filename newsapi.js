@@ -59,7 +59,12 @@ function displayNews(articles) {
     const newsContainer = document.getElementById("news");
     newsContainer.innerHTML = ""; // Vider avant d'ajouter les nouveaux articles
 
-    articles.forEach(article => {
+    // Trier les articles par date de publication (du plus récent au plus ancien)
+    const sortedArticles = articles.sort((a, b) => {
+        return new Date(b.publishedAt) - new Date(a.publishedAt);
+    });
+
+    sortedArticles.forEach(article => {
         const articleElement = document.createElement("div");
         articleElement.classList.add("news-item");
 
