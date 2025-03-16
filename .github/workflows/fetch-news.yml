@@ -19,7 +19,7 @@ jobs:
       - name: Install dependencies
         run: npm install axios
 
-      - name: Fetch news articles
+      - name: Fetch new articles
         run: |
           node -e "
           const axios = require('axios');
@@ -30,11 +30,36 @@ jobs:
           const LANGUAGE = 'fr';
           const PAGE_SIZE = 20;
 
+          // Lire les articles existants
+          let existingArticles = [];
+          try {
+            existingArticles = JSON.parse(fs.readFileSync('articles.json', 'utf8'));
+          } catch (error) {
+            console.log('Aucun fichier articles.json trouvé, création d\'un nouveau fichier.');
+          }
+
+          // Récupérer la date du dernier article
+          const lastArticleDate = existingArticles.length > 0
+            ? new Date(existingArticles[0].publishedAt)
+            : new Date(0); // Si aucun article, utiliser une date très ancienne
+
+          // Récupérer les nouveaux articles depuis NewsAPI
           axios.get(\`https://newsapi.org/v2/everything?q=\${QUERY}&language=\${LANGUAGE}&pageSize=\${PAGE_SIZE}&sortBy=publishedAt&apiKey=\${API_KEY}\`)
             .then(response => {
               if (response.data.status === 'ok') {
-                fs.writeFileSync('articles.json', JSON.stringify(response.data.articles));
-                console.log('Articles mis à jour avec succès.');
+                const newArticles = response.data.articles.filter(article => {
+                  const articleDate = new Date(article.publishedAt);
+                  return articleDate > lastArticleDate; // Filtrer les articles plus récents
+                });
+
+                if (newArticles.length > 0) {
+                  // Fusionner les nouveaux articles avec les anciens
+                  const updatedArticles = [...newArticles, ...existingArticles];
+                  fs.writeFileSync('articles.json', JSON.stringify(updatedArticles));
+                  console.log(\`${newArticles.length} nouveaux articles ajoutés.\`);
+                } else {
+                  console.log('Aucun nouvel article trouvé.');
+                }
               } else {
                 console.error('Erreur NewsAPI :', response.data);
               }
