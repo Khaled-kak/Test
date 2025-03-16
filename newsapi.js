@@ -25,15 +25,6 @@ async function fetchNews() {
     }
 }
 
-        // Analyser les articles et afficher
-        const analyzedArticles = await Promise.all(data.articles.map(article => analyzeArticle(article)));
-        displayNews(analyzedArticles);
-
-    } catch (error) {
-        console.error("Erreur lors de la récupération des articles :", error.message || error);
-    }
-}
-
 // Fonction d'analyse du sentiment et reformulation du titre
 async function analyzeArticle(article) {
     let sentiment = "⚪ Neutre";
