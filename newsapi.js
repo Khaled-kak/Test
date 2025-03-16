@@ -6,21 +6,24 @@ const FETCH_INTERVAL = 3 * 60 * 60 * 1000;  // 3 heures en millisecondes
 
 // Fonction pour récupérer les actualités
 async function fetchNews() {
-    const url = `https://newsapi.org/v2/everything?q=${QUERY}&language=${LANGUAGE}&pageSize=${PAGE_SIZE}&sortBy=publishedAt&apiKey=${API_KEY}`;
-
     try {
-        const response = await fetch(url);
-        const data = await response.json();
+        // Lire les articles depuis le fichier articles.json
+        const response = await fetch("articles.json");
+        const articles = await response.json();
 
-        if (data.status !== "ok") {
-            console.error("Erreur NewsAPI :", data);
-            return;
-        }
-
-        if (!data.articles || !Array.isArray(data.articles)) {
+        if (!articles || !Array.isArray(articles)) {
             console.error("Aucun article trouvé ou format de réponse invalide.");
             return;
         }
+
+        // Analyser et afficher les articles
+        const analyzedArticles = await Promise.all(articles.map(article => analyzeArticle(article)));
+        displayNews(analyzedArticles);
+
+    } catch (error) {
+        console.error("Erreur lors de la récupération des articles :", error.message || error);
+    }
+}
 
         // Analyser les articles et afficher
         const analyzedArticles = await Promise.all(data.articles.map(article => analyzeArticle(article)));
